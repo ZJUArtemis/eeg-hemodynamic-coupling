@@ -1,0 +1,104 @@
+\begin{thebibliography}{}
+
+\bibitem[Akeju et~al., 2014]{akeju2014}
+Akeju, O., Westover, M.~B., Pavone, K.~J., et~al. (2014).
+\newblock Effects of sevoflurane and propofol on frontal electroencephalogram
+  power and coherence.
+\newblock {\em Anesthesiology}, 121(5):990--998.
+\newblock \url{https://doi.org/10.1097/ALN.0000000000000436}.
+
+\bibitem[Avidan et~al., 2008]{avidan2008}
+Avidan, M.~S., Zhang, L., Burnside, B.~A., et~al. (2008).
+\newblock Anesthesia awareness and the bispectral index.
+\newblock {\em New England Journal of Medicine}, 358(11):1097--1108.
+\newblock \url{https://doi.org/10.1056/NEJMoa0707361}.
+
+\bibitem[Barnett and Seth, 2014]{barnett2014}
+Barnett, L. and Seth, A.~K. (2014).
+\newblock The mvgc multivariate granger causality toolbox: A new approach to
+  granger-causal inference.
+\newblock {\em Journal of Neuroscience Methods}, 223:50--68.
+\newblock \url{https://doi.org/10.1016/j.jneumeth.2013.10.018}.
+
+\bibitem[Brown et~al., 2010]{brown2010}
+Brown, E.~N., Lydic, R., and Schiff, N.~D. (2010).
+\newblock General anesthesia, sleep, and coma.
+\newblock {\em New England Journal of Medicine}, 363(27):2638--2650.
+\newblock \url{https://doi.org/10.1056/NEJMra0808281}.
+
+\bibitem[Bruhn et~al., 2000]{bruhn2000}
+Bruhn, J., R{\"o}pcke, H., and Hoeft, A. (2000).
+\newblock Approximate entropy as an electroencephalographic measure of
+  anesthetic drug effect during desflurane anesthesia.
+\newblock {\em Anesthesiology}, 92(3):715--726.
+\newblock \url{https://doi.org/10.1097/00000542-200003000-00016}.
+
+\bibitem[Granger, 1969]{granger1969}
+Granger, C. W.~J. (1969).
+\newblock Investigating causal relations by econometric models and
+  cross-spectral methods.
+\newblock {\em Econometrica}, 37(3):424--438.
+\newblock \url{https://doi.org/10.2307/1912791}.
+
+\bibitem[Lee et~al., 2022]{lee2022}
+Lee, H.-C., Park, Y., Yoon, S.~B., Yang, S.~M., Park, D., and Jung, C.-W.
+  (2022).
+\newblock {VitalDB}, a high-fidelity multi-parameter vital signs database in
+  surgical patients.
+\newblock {\em Scientific Data}, 9:279.
+\newblock \url{https://doi.org/10.1038/s41597-022-01411-5}.
+
+\bibitem[Liang and Zeger, 1986]{liang1986}
+Liang, K.-Y. and Zeger, S.~L. (1986).
+\newblock Longitudinal data analysis using generalized linear models.
+\newblock {\em Biometrika}, 73(1):13--22.
+\newblock \url{https://doi.org/10.1093/biomet/73.1.13}.
+
+\bibitem[Pereda et~al., 2005]{pereda2005}
+Pereda, E., Quian~Quiroga, R., and Bhattacharya, J. (2005).
+\newblock Nonlinear multivariate analysis of neurophysiological signals.
+\newblock {\em Progress in Neurobiology}, 77(1--2):1--37.
+\newblock \url{https://doi.org/10.1016/j.pneurobio.2005.10.003}.
+
+\bibitem[Pikovsky et~al., 2001]{pikovsky2001}
+Pikovsky, A., Rosenblum, M., and Kurths, J. (2001).
+\newblock {\em Synchronization: A Universal Concept in Nonlinear Sciences}.
+\newblock Cambridge University Press, Cambridge, UK.
+\newblock ISBN 978-0-521-53352-2.
+
+\bibitem[Purdon et~al., 2015]{purdon2015}
+Purdon, P.~L., Pavone, K.~J., Akeju, O., et~al. (2015).
+\newblock The ageing brain: Age-dependent changes in the electroencephalogram
+  during propofol and sevoflurane general anaesthesia.
+\newblock {\em British Journal of Anaesthesia}, 115(Suppl~1):i46--i57.
+\newblock \url{https://doi.org/10.1093/bja/aev213}.
+
+\bibitem[Sessler et~al., 2012]{sessler2012}
+Sessler, D.~I., Sigl, J.~C., Kelley, S.~D., et~al. (2012).
+\newblock Hospital stay and mortality are increased in patients having a
+  ``triple low'' of low blood pressure, low bispectral index, and low minimum
+  alveolar concentration of volatile anesthesia.
+\newblock {\em Anesthesiology}, 116(6):1195--1203.
+\newblock \url{https://doi.org/10.1097/ALN.0b013e31825683dc}.
+
+\bibitem[Seth et~al., 2015]{seth2015}
+Seth, A.~K., Barrett, A.~B., and Barnett, L. (2015).
+\newblock Granger causality analysis in neuroscience and neuroimaging.
+\newblock {\em Journal of Neuroscience}, 35(8):3293--3297.
+\newblock \url{https://doi.org/10.1523/JNEUROSCI.4399-14.2015}.
+
+\bibitem[Struys et~al., 2000]{struys2000}
+Struys, M.~M., De~Smet, T., Depoorter, B., et~al. (2000).
+\newblock Comparison of plasma compartment versus two methods for effect
+  compartment-controlled target-controlled infusion for propofol.
+\newblock {\em Anesthesiology}, 92(2):399--406.
+\newblock \url{https://doi.org/10.1097/00000542-200002000-00021}.
+
+\bibitem[Torrence and Compo, 1998]{torrence1998}
+Torrence, C. and Compo, G.~P. (1998).
+\newblock A practical guide to wavelet analysis.
+\newblock {\em Bulletin of the American Meteorological Society}, 79(1):61--78.
+\newblock
+  \url{https://doi.org/10.1175/1520-0477(1998)079\%3C0061:APGTWA\%3E2.0.CO;2}.
+
+\end{thebibliography}

@@ -1,0 +1,19 @@
+Category,Metric,Value
+Granger Causality,EEG→Hemo F-statistic (mean±SD),2.49 ± 0.50 (winsorised)
+Granger Causality,EEG→Hemo F-statistic (raw),2.61 ± 5.08
+Granger Causality,Hemo→EEG F-statistic (mean±SD),2.23 ± 0.50
+Granger Causality,GC directionality (EEG temporal preceding),71.2% of cases
+Wavelet Coherence,Overall WC (mean±SD),0.799 ± 0.034
+Wavelet Coherence,"Low-freq WC (<0.01 Hz, mean±SD)",0.824 ± 0.033
+Wavelet Coherence,"Mid-freq WC (0.01–0.03 Hz, mean±SD)",0.352 ± 0.025
+NCCI,NCCI (mean±SD),0.727 ± 0.067
+NCCI,NCCI median [IQR],0.730 [0.694–0.766]
+NCCI,PCA PC1 variance explained,37.0%
+WCS Event Analysis (primary: GEE),Cases with ≥1 excursion,"2,031/2,070 (98.1%)"
+WCS Event Analysis (primary: GEE),Total event observations,"73,001"
+WCS Event Analysis (primary: GEE),WCS pre-excursion (patient mean±SD),0.333 ± 0.124
+WCS Event Analysis (primary: GEE),WCS post-excursion (patient mean±SD),0.337 ± 0.131
+WCS Event Analysis (primary: GEE),ΔWCS (patient mean±SD),+0.0047 ± 0.0997
+WCS Event Analysis (primary: GEE),GEE β (SE); p-value,+0.0031 (0.0017); p=0.072
+WCS Event Analysis (primary: GEE),Patient-level Cohen's d,0.047 (negligible)
+WCS Event Analysis (primary: GEE),% patients with negative ΔWCS,49%

@@ -1,0 +1,16 @@
+Category,Metric,Value
+Granger Causality,EEG→Hemo F-statistic (mean±SD),2.61 ± 5.08
+Granger Causality,Hemo→EEG F-statistic (mean±SD),2.23 ± 0.50
+Granger Causality,GC directionality (EEG→Hemo dominant),71% of cases
+Wavelet Coherence,Overall WC (mean±SD),0.799 ± 0.034
+Wavelet Coherence,"Low-freq WC (<0.01 Hz, mean±SD)",0.824 ± 0.033
+Wavelet Coherence,"Mid-freq WC (0.01–0.03 Hz, mean±SD)",0.352 ± 0.025
+NCCI,NCCI (mean±SD),0.727 ± 0.067
+NCCI,NCCI range,"[0.000, 1.000]"
+Event Analysis (strict),Total events detected,"73,001"
+Event Analysis (strict),Cases with events,2055 (99.3%)
+Event Analysis (strict),NCCI pre-event (mean±SD),0.321 ± 0.165
+Event Analysis (strict),NCCI post-event (mean±SD),0.325 ± 0.175
+Event Analysis (strict),ΔNCCI (mean±SD),0.0030 ± 0.1863
+Event Analysis (strict),% events with NCCI decrease,49.8%
+Event Analysis (strict),Paired t-test (pre vs post),"t=-4.419, p<0.001"

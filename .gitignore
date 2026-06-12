@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# LaTeX build artefacts
+*.aux
+*.log
+*.out
+*.toc
+*.blg
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Large derived data — NOT redistributed (regenerate from VitalDB via src/)
+# Raw VitalDB waveforms and any per-case feature/coupling/ncci dumps must never be committed.
+features/
+coupling/
+ncci/
+*.vital
+data/raw/
+*.parquet
+*.npy
+*.h5
+
+# OS
+.DS_Store
+Thumbs.db
