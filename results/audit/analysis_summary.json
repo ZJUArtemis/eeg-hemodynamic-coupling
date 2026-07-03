@@ -1,0 +1,51 @@
+{
+  "seed": 20260629,
+  "n_total_cases": 2070,
+  "n_development_cases": 1035,
+  "n_validation_cases": 1035,
+  "n_development_cases_contributing_windows": 1035,
+  "n_balanced_development_windows": 205790,
+  "pca_explained_variance": 0.40809111595475894,
+  "development_gc_99th_percentile_cap": 13.998949602471928,
+  "signed_loadings": {
+    "GC_e2h": 0.7030280691848593,
+    "WC": 0.6928958965019203,
+    "pearson_r": 0.16014621615576344
+  },
+  "scaler_mean": {
+    "GC_e2h": 2.440569539492035,
+    "WC": 0.643321087840078,
+    "pearson_r": -0.0019650307226151405
+  },
+  "scaler_scale": {
+    "GC_e2h": 2.376149758081545,
+    "WC": 0.0501312487595548,
+    "pearson_r": 0.33554409783237493
+  },
+  "primary": {
+    "label": "MAP>20, BIS<60, refractory=20min",
+    "n_validation_cases_with_events": 1006,
+    "n_events": 4114,
+    "events_per_patient_median": 4.0,
+    "events_per_patient_q1": 2.0,
+    "events_per_patient_q3": 5.0,
+    "mean_pre_GCS": -0.12852264783735173,
+    "mean_post_GCS": -0.1206232503884296,
+    "mean_delta_GCS": 0.007899397448922147,
+    "sd_delta_GCS": 1.006617674198741,
+    "cohens_d": 0.007847465479095626,
+    "t_p": 0.8034874357409388,
+    "bootstrap_ci_low": -0.05391767907483143,
+    "bootstrap_ci_high": 0.06789956393949233,
+    "wilcoxon_p": 0.27456618213106376,
+    "pct_patient_negative": 53.28031809145129,
+    "first_event_mean_delta": 0.028393220294915738,
+    "first_event_t_p": 0.5763736713408938,
+    "gee_beta": -0.03353464252232507,
+    "gee_ci_low": -0.0819241778173243,
+    "gee_ci_high": 0.014854892772674176,
+    "gee_p": 0.17437384731681216,
+    "short_label": "Primary: MAP>20, BIS<60, 20 min",
+    "order": 0
+  }
+}

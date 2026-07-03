@@ -2,15 +2,39 @@
 
 Code and summary results for the study:
 
-> **EEG–Hemodynamic Coupling During General Anaesthesia: A Large-Scale Exploratory
-> Analysis in 2,070 Surgical Cases with Null Acute Event-Response Findings.**
+> **Development and Held-Out Evaluation of an EEG–Hemodynamic Coupling Score during
+> General Anaesthesia: No Detectable Change at Haemodynamic Excursions in 2,070 VitalDB Cases.**
 
-A retrospective, exploratory analysis of brain–heart coupling during general anaesthesia,
-using synchronised EEG and arterial blood pressure (ABP) waveforms from the public
-[VitalDB](https://physionet.org/content/vitaldb/1.0.0/) dataset. Coupling is quantified with
-Granger causality (GC) and cross-wavelet coherence (WC); the primary endpoint analysis tests
-whether a within-patient window-level coupling score changes at surrogate haemodynamic
+A retrospective analysis of brain–heart coupling during general anaesthesia, using
+synchronised EEG and arterial blood pressure (ABP) waveforms from the public
+[VitalDB](https://physionet.org/content/vitaldb/1.0.0/) dataset. Window-level coupling is
+quantified with Granger causality (GC), smoothed cross-wavelet coherence (WC), and linear
+association, combined into a single **EEG–hemodynamic coupling score (EHCS)**. The score is
+fitted (frozen PCA) on 1,035 development patients and applied unchanged to a held-out set of
+1,035 patients. The primary analysis tests whether patient-level EHCS changes at haemodynamic
 excursions. **The primary result is null** and is reported as such.
+
+## Analysis of record (revised held-out reanalysis)
+
+The authoritative analysis is `src/step8_bioengineering_reanalysis.py`. It performs the
+reproducible 1035/1035 patient split (seed 20260629), the frozen development-set coupling
+score, onset-only event detection with a 20-minute refractory interval and strictly
+non-overlapping pre/post windows, and patient-level inference. Every reported number is
+preserved under `results/audit/`.
+
+```
+Development set (n=1035):   frozen PCA, PC1 = 40.8% variance;
+                            loadings GC 0.703 / WC 0.693 / Pearson 0.160;
+                            GC capped at development 99th pct = 13.999.
+Held-out set (n=1035):      1006 patients with 4114 eligible excursions.
+Primary endpoint:           mean patient-level ΔEHCS = +0.008
+                            (95% bootstrap CI −0.054 to +0.068; Cohen's d = 0.008; p = 0.803).
+Corroboration:              first-event, event-level GEE, and all MAP / BIS / refractory
+                            sensitivity analyses were also null (see results/audit/).
+```
+
+> **Note on column labels.** The audit CSV/JSON columns use the internal name `GCS`
+> (e.g. `delta_GCS`); this is the SAME quantity called **EHCS** in the manuscript.
 
 ## Repository contents
 
@@ -18,30 +42,40 @@ excursions. **The primary result is null** and is reported as such.
 src/                 Analysis pipeline (Python)
   step1_cohort_selection.py     Cohort construction + selection flowchart
   step2_signal_processing.py    EEG/ABP feature extraction (per-window)
-  step3_coupling_analysis.py    Granger causality + cross-wavelet coherence; NCCI
-  step3b_windowed_ncci.py       Per-window WCS + surrogate-excursion event analysis
+  step3_coupling_analysis.py    Granger causality + cross-wavelet coherence
+  step3b_windowed_ncci.py       Per-window coupling + surrogate-excursion events
   step4_figures.py              Main figures
   step4b_ncci_event_figure.py   Event-response figure
-  step7_sensitivity.py          Sensitivity analyses (EEG feature / window variants)
+  step7_sensitivity.py          Sensitivity analyses (feature / window variants)
   step7b_sensitivity_fast.py    Faster sensitivity subsample
+  step8_bioengineering_reanalysis.py   ★ Revised held-out reanalysis (analysis of record)
 results/
-  metrics/           Summary CSVs sufficient to regenerate tables/figures
-  figures/           Paper figures (PNG, 300 DPI)
-manuscript/          PeerJ submission (LaTeX source, PDF, supplement, cover letter, STROBE checklist)
+  audit/             ★ Frozen split + numerical audit outputs backing every reported number
+    case_split.csv                 caseid → development / validation assignment (seed 20260629)
+    primary_events.csv             event-level pre/post/Δ EHCS for the primary rule
+    primary_patient_summary.csv    per-patient event counts and mean Δ EHCS
+    sensitivity_analysis.csv       all MAP / BIS / refractory sensitivity rules
+    analysis_summary.json          frozen score parameters + primary result
+  metrics/           Summary CSVs for the earlier exploratory tables/figures
+  figures/           Figures (PNG, 300 DPI)
+manuscript/          Earlier exploratory PeerJ write-up (SUPERSEDED by the held-out reanalysis
+                     above; retained for history). The current submission is the Bioengineering
+                     held-out-evaluation manuscript.
 ```
 
 ## Data availability
 
-This repository does **not** redistribute raw waveforms or large derived feature files.
-The analysis is built entirely on the openly available VitalDB dataset. To reproduce from
-scratch, download VitalDB v1.0.0 from PhysioNet:
+This repository does **not** redistribute raw waveforms or large per-case derived feature
+files. The analysis is built entirely on the openly available VitalDB dataset. To reproduce
+from scratch, download VitalDB v1.0.0 from PhysioNet:
 
-- https://physionet.org/content/vitaldb/1.0.0/
+- https://physionet.org/content/vitaldb/1.0.0/ (DOI: 10.13026/czw8-9p62, CC BY 4.0)
 
 The intermediate per-case feature/coupling/NCCI files (hundreds of MB, derived from VitalDB)
-are regenerated by `step2`/`step3`/`step3b` and are intentionally excluded here. The small
-case-level summary tables needed to reproduce the manuscript tables and figures are provided
-under `results/metrics/`.
+are regenerated by `step2`/`step3`/`step3b` and are intentionally excluded here. The
+case-level frozen split and audit outputs that back every reported number are provided under
+`results/audit/`; the audit files are keyed by public VitalDB case IDs and contain no
+patient-identifying information.
 
 ## Requirements
 
@@ -53,7 +87,7 @@ pip install -r requirements.txt
 
 ## Reproducing the analysis
 
-> **Note on paths.** Each script defines two path constants near the top:
+> **Note on paths.** Each script defines path constants near the top:
 > `RAW_DATA` (your local VitalDB/PhysioNet root, default `data/physionet.org`) and
 > `WORK` (the working/output root, default `.`). Edit these to match your environment,
 > or place the VitalDB files under `data/physionet.org/` before running.
@@ -61,19 +95,12 @@ pip install -r requirements.txt
 ```bash
 python src/step1_cohort_selection.py     # → cohort + flowchart
 python src/step2_signal_processing.py    # → per-window EEG/ABP features (large; from VitalDB)
-python src/step3_coupling_analysis.py    # → GC, WC, case-level NCCI
-python src/step3b_windowed_ncci.py       # → WCS + surrogate-excursion event analysis (primary GEE)
-python src/step4_figures.py              # → figures
-python src/step7_sensitivity.py          # → sensitivity analyses
+python src/step3_coupling_analysis.py    # → GC, WC, case-level coupling
+python src/step3b_windowed_ncci.py       # → per-window coupling + surrogate-excursion events
+python src/step8_bioengineering_reanalysis.py   # → held-out reanalysis (split, frozen EHCS, audit)
 ```
 
-## Statistical summary
-
-- Cohort: 2,070 general anaesthesia cases (VitalDB).
-- EEG temporally preceded MAP changes (GC) in 71% of cases; WC_overall = 0.799 ± 0.034.
-- Surrogate haemodynamic excursions occurred in 98.1% of cases — a **non-specific** endpoint.
-- Primary endpoint (GEE on per-event ΔWCS): β = +0.0038, *p* = 0.047 (exchangeable) but
-  *p* = 0.230 with AR(1) correlation; Cohen's *d* = 0.047 (negligible) → **not robust / null**.
+`step8` regenerates everything under `results/audit/` and the held-out event-analysis figure.
 
 ## Citation
 
