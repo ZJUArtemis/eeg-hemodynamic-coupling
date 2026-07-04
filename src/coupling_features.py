@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Script: step3_coupling_analysis.py | Topic: 9 | Purpose: EEG-Hemodynamic coupling analysis
+Script: coupling_features.py | Topic: 9 | Purpose: EEG-Hemodynamic coupling analysis
 Computes: Granger Causality + Cross-Wavelet Coherence + NCCI construction
-Input: per-case feature parquet files from step2
+Input: per-case feature parquet files from signal_processing
 Output: coupling metrics per case, aggregate statistics, NCCI
 """
 import os, sys, json, logging, gc, warnings
@@ -313,7 +313,7 @@ def compute_case_coupling(caseid):
 
 def main():
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file = OUT_LOGS / f"step3_coupling_{ts}.log"
+    log_file = OUT_LOGS / f"coupling_features_{ts}.log"
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [%(levelname)s] %(message)s",
@@ -328,7 +328,7 @@ def main():
     logging.info(f"Found {len(case_ids)} processed cases")
 
     if len(case_ids) == 0:
-        logging.error("No feature files found. Run step2 first.")
+        logging.error("No feature files found. Run signal_processing first.")
         sys.exit(1)
 
     # Process in parallel

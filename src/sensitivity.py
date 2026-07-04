@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Script: step7_sensitivity.py | Topic: 9 | Purpose: Phase 7 sensitivity analyses
+Script: sensitivity.py | Topic: 9 | Purpose: Phase 7 sensitivity analyses
 Runs three sensitivity checks:
   7.1 Different EEG features (SEF95, alpha_rel, spectral_entropy) replacing ADR
   7.2 Different time resolutions (60s/30s and 10s/5s windows)
@@ -335,7 +335,7 @@ def plot_sensitivity_figure(results_df, save_path):
 
 def main():
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file = OUT_LOGS / f"step7_sensitivity_{ts}.log"
+    log_file = OUT_LOGS / f"sensitivity_{ts}.log"
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [%(levelname)s] %(message)s",

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Script: step3b_windowed_ncci.py | Topic: 9 | Purpose: Window-level NCCI + refined event analysis
+Script: windowed_coupling_events.py | Topic: 9 | Purpose: Window-level NCCI + refined event analysis
 Key fix from EXP-TOPIC9-001:
   - NCCI computed per time window (not per case)
   - Stricter event definition: MAP+20 in 90s, BIS<60
@@ -232,7 +232,7 @@ def compute_windowed_ncci(caseid):
 
 def main():
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file = OUT_LOGS / f"step3b_ncci_{ts}.log"
+    log_file = OUT_LOGS / f"windowed_coupling_events_{ts}.log"
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [%(levelname)s] %(message)s",

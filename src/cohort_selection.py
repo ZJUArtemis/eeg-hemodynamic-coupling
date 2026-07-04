@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Script: step1_cohort_selection.py | Topic: 9 | Purpose: EEG+ABP cohort selection
+Script: cohort_selection.py | Topic: 9 | Purpose: EEG+ABP cohort selection
 Uses multiprocessing (8 cores) to scan vital file headers efficiently.
 """
 import os, sys, json, logging, gc
@@ -61,7 +61,7 @@ def check_case_tracks(caseid):
 def main():
     # === LOGGING ===
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file = OUT_LOGS / f"step1_cohort_{ts}.log"
+    log_file = OUT_LOGS / f"cohort_selection_{ts}.log"
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [%(levelname)s] %(message)s",

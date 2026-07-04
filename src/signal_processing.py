@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Script: step2_signal_processing.py | Topic: 9 | Purpose: EEG + ABP feature extraction
+Script: signal_processing.py | Topic: 9 | Purpose: EEG + ABP feature extraction
 Processes each case: EEG band powers + ABP beat features → windowed features
 Saves per-case feature parquet files for coupling analysis.
 """
@@ -344,7 +344,7 @@ def process_single_case(caseid):
 
 def main():
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file = OUT_LOGS / f"step2_signal_{ts}.log"
+    log_file = OUT_LOGS / f"signal_processing_{ts}.log"
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [%(levelname)s] %(message)s",
@@ -356,7 +356,7 @@ def main():
     # Load cohort
     cohort_file = WORK / "outputs" / "metrics" / "eligible_caseids_eeg_abp.csv"
     if not cohort_file.exists():
-        logging.error("Run step1_cohort_selection.py first!")
+        logging.error("Run cohort_selection.py first!")
         sys.exit(1)
 
     cohort = pd.read_csv(cohort_file)

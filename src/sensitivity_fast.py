@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Script: step7b_sensitivity_fast.py | Topic: 9 | Purpose: Phase 7 sensitivity analyses (fast)
+Script: sensitivity_fast.py | Topic: 9 | Purpose: Phase 7 sensitivity analyses (fast)
 Strategy: skips expensive per-window GC; uses WC + Pearson only for sensitivity configs.
 For EEG feature variants (7.1): replaces ADR with SEF95/alpha_rel/spectral_entropy.
 For time resolution (7.2): re-aggregates existing 10s features to coarser windows.
@@ -300,7 +300,7 @@ def plot_sensitivity_figure(results_df, save_path):
 
 def main():
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file = OUT_LOGS / f"step7b_sensitivity_{ts}.log"
+    log_file = OUT_LOGS / f"sensitivity_fast_{ts}.log"
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [%(levelname)s] %(message)s",

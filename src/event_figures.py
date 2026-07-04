@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Script: step4b_ncci_event_figure.py | Topic: 9
+Script: event_figures.py | Topic: 9
 Generates Fig 4b: Window-level NCCI at nociceptive events (strict thresholds).
 Also generates the updated Table 2 with all three coupling methods summarized.
 """
@@ -207,7 +207,7 @@ def make_table2(coupling_df, ev_df, save_path):
 
 def main():
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file = OUT_LOGS / f"step4b_{ts}.log"
+    log_file = OUT_LOGS / f"event_figures_{ts}.log"
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [%(levelname)s] %(message)s",
@@ -219,7 +219,7 @@ def main():
     ev_path = OUT_METRICS / "windowed_ncci_events.csv"
 
     if not ev_path.exists():
-        logging.error("windowed_ncci_events.csv not found. Run step3b first.")
+        logging.error("windowed_ncci_events.csv not found. Run windowed_coupling_events first.")
         return
 
     ev_df = pd.read_csv(ev_path)

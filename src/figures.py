@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Script: step4_figures.py | Topic: 9 | Purpose: Publication-quality figures
+Script: figures.py | Topic: 9 | Purpose: Publication-quality figures
 Generates all 6 main figures + supplementary figures for the paper.
 """
 import sys, logging, warnings, json
@@ -585,7 +585,7 @@ def make_table1(cohort_path, coupling_path, save_path):
 
 def main():
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file = OUT_LOGS / f"step4_figures_{ts}.log"
+    log_file = OUT_LOGS / f"figures_{ts}.log"
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [%(levelname)s] %(message)s",
@@ -600,7 +600,7 @@ def main():
     flow_path     = OUT_METRICS / "cohort_flowchart_numbers.json"
 
     if not coupling_path.exists():
-        logging.error(f"coupling_summary.csv not found. Run step3 first.")
+        logging.error(f"coupling_summary.csv not found. Run coupling_features first.")
         sys.exit(1)
 
     coupling_df = pd.read_csv(coupling_path)
@@ -627,7 +627,7 @@ def main():
             feat_path = OUT_FEATURES / f"case_{demo_caseid:04d}_features.parquet"
             if feat_path.exists():
                 df_case = pd.read_parquet(feat_path)
-                from step3_coupling_analysis import detect_nociceptive_events
+                from coupling_features import detect_nociceptive_events
                 events = detect_nociceptive_events(
                     df_case['MAP_mean'].values,
                     df_case.get('BIS_value', pd.Series(np.full(len(df_case), np.nan))).values
