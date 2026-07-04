@@ -58,10 +58,10 @@ results/
     analysis_summary.json          frozen score parameters + primary result
   metrics/           Summary CSVs for the earlier exploratory tables/figures
   figures/           Figures (PNG, 300 DPI)
-manuscript/          Earlier exploratory PeerJ write-up (SUPERSEDED by the held-out reanalysis
-                     above; retained for history). The current submission is the Bioengineering
-                     held-out-evaluation manuscript.
 ```
+
+The manuscript itself is under journal review and is not hosted in this repository; this
+repository provides the analysis code and the numerical audit outputs that back its results.
 
 ## Data availability
 
