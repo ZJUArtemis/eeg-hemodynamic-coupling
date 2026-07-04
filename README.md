@@ -104,11 +104,15 @@ python src/held_out_reanalysis.py       # → held-out reanalysis (split, frozen
 
 ## Citation
 
-If you use this code, please cite the article (citation to be added upon publication) and the
-VitalDB dataset:
+This repository contains the analysis code for the study (author: Ge Gao). If you use this
+code, please cite both:
 
-> Lee H-C, Jung C-W. VitalDB, a high-fidelity multi-parameter vital signs database in surgical
-> patients. *Sci Data*. 2022;9:279.
+1. **Our article** (the method and code) — *full citation to be added upon publication*.
+2. **The VitalDB dataset** (the underlying data), as required by its data use terms:
+
+> Lee HC, Park Y, Yoon SB, Yang SM, Park D, Jung CW. VitalDB, a high-fidelity multi-parameter
+> vital signs database in surgical patients. *Sci Data*. 2022;9:279.
+> doi:10.1038/s41597-022-01411-5
 
 ## License
 
